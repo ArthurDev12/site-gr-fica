@@ -1,0 +1,393 @@
+    /* 
+      :root — define variáveis globais de cor.
+      Variáveis CSS começam com "--".
+      Assim mudamos uma cor em um lugar só e ela muda no site todo.
+    */
+    :root {
+      --preto:    #16213E;
+      --branco:   #FAFBFF;
+      --cinza:    #6B7280;
+      --linha:    #D7DDF0;
+      --destaque: #4F46E5;
+    }
+
+    /* 
+      * seleciona TODOS os elementos.
+      box-sizing: border-box — faz padding e border ficarem
+      "dentro" do tamanho declarado (evita quebras de layout).
+      margin/padding: 0 — remove espaços padrão do navegador.
+    */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Estilo base do corpo inteiro da página */
+    body {
+      font-family: 'DM Sans', sans-serif; /* fonte padrão */
+      background-color: var(--branco);    /* cor de fundo */
+      color: var(--preto);                /* cor do texto */
+      font-size: 16px;
+      line-height: 1.7; /* espaçamento entre linhas */
+    }
+
+    /* ---- NAVEGAÇÃO (menu fixo no topo) ---- */
+
+    /* 
+      <nav> fixo no topo da tela.
+      position: fixed — fica parado mesmo quando rolamos a página.
+      z-index: 100 — fica na frente de outros elementos.
+    */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;            /* ocupa toda a largura */
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--linha); /* linha embaixo do menu */
+      z-index: 100;
+      padding: 0 40px;
+    }
+
+    /* Agrupa logo + links lado a lado */
+    .nav-inner {
+      display: flex;           /* coloca itens em linha */
+      justify-content: space-between; /* empurra logo p/ esq e links p/ dir */
+      align-items: center;     /* centraliza verticalmente */
+      max-width: 1100px;       /* limita largura máxima */
+      margin: 0 auto;          /* centraliza na tela */
+      height: 64px;
+    }
+
+    /* Logo: texto em negrito no canto esquerdo */
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+      color: var(--preto);
+    }
+
+    /* Lista de links do menu (remove bolinhas de <ul>) */
+    .nav-links {
+      list-style: none;        /* remove marcadores de lista */
+      display: flex;           /* coloca os itens em linha */
+      gap: 32px;               /* espaço entre os itens */
+    }
+
+    /* Cada link do menu */
+    .nav-links a {
+      text-decoration: none;   /* remove sublinhado */
+      color: var(--cinza);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;  /* animação suave ao passar o mouse */
+    }
+
+    /* Ao passar o mouse, o link fica preto */
+    .nav-links a:hover {
+      color: var(--preto);
+    }
+
+    /* ---- SEÇÕES GERAIS ---- */
+
+    /* 
+      Cada <section> tem padding para afastar o conteúdo das bordas.
+      padding-top: 100px nos primeiros para não ficar atrás do nav fixo.
+    */
+    section {
+      padding: 80px 40px;
+      max-width: 1100px;
+      margin: 0 auto; /* centraliza o bloco de conteúdo */
+    }
+
+    /* ---- HERO (seção de boas-vindas) ---- */
+
+    /* Envolve o hero para ter fundo que vai de borda a borda */
+    #hero-wrapper {
+      background:
+        linear-gradient(135deg, #16213E 0%, #1E3A8A 50%, #4F46E5 100%);
+      padding-top: 64px; /* compensa a altura do nav fixo */
+    }
+
+    /* Conteúdo interno centralizado */
+    #hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      color: var(--branco);
+    }
+
+    /* Texto pequeno acima do título principal */
+    .hero-subtag {
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase; /* letras maiúsculas */
+      color: var(--destaque);
+      margin-bottom: 20px;
+    }
+
+    /* Título grande da página inicial */
+    #hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 6vw, 5rem); 
+      /* clamp(min, ideal, max): tamanho responsivo */
+      line-height: 1.1;
+      max-width: 700px;
+      margin-bottom: 24px;
+    }
+
+    /* Parágrafo introdutório */
+    #hero p {
+      font-size: 1.05rem;
+      color: #AAAAAA; /* cinza claro, sobre fundo escuro */
+      max-width: 500px;
+      margin-bottom: 40px;
+    }
+
+    /* Botão principal do hero */
+    .btn {
+      display: inline-block;     /* permite padding e margem */
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #4F46E5, #06B6D4);
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s; /* animação ao passar o mouse */
+    }
+
+    .btn:hover {
+      opacity: 0.85; /* fica levemente transparente */
+    }
+
+    /* ---- TÍTULO DE SEÇÃO (padrão reutilizável) ---- */
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    /* Linha vermelha abaixo do título */
+    .section-title::after {
+      content: '';             /* cria um elemento vazio */
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: var(--destaque);
+      margin-top: 10px;
+    }
+
+    .section-subtitle {
+      color: var(--cinza);
+      margin-bottom: 48px;
+      margin-top: 12px;
+    }
+
+    /* ---- SERVIÇOS ---- */
+
+    /* Grid de 3 colunas para os serviços */
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+      gap: 2px; /* espaço entre as células */
+    }
+
+    /* Cada card de serviço */
+    .servico-item {
+      border: 1px solid var(--linha);
+      padding: 32px;
+      transition: 0.3s;
+      border-radius: 12px;
+    }
+
+    .servico-item:hover {
+      transform: translateY(-5px);
+      border-color: #4F46E5;
+      box-shadow: 0 10px 30px rgba(79, 70, 229, 0.12);
+    }
+
+    /* Ícone/emoji do serviço */
+    .servico-icon {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+
+    .servico-item h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .servico-item p {
+      color: var(--cinza);
+      font-size: 0.9rem;
+    }
+
+    /* ---- GALERIA ---- */
+
+    /* Fundo cinza claro para a seção de galeria */
+    #galeria-wrapper {
+      background: linear-gradient(
+        180deg,
+        #F8FAFF 0%,
+        #EEF4FF 100%
+      );
+    }
+
+    /* Grid responsivo: colunas de no mínimo 220px */
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 4px;
+    }
+
+    /* Cada item da galeria ocupa a altura definida */
+    .galeria-item {
+      height: 220px;
+      overflow: hidden; /* corta o que ultrapassar */
+      background: var(--linha);
+      position: relative;
+    }
+
+    /* Imagem da galeria preenche o item */
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* recorta a imagem para preencher sem distorcer */
+      display: block;
+      transition: transform 0.4s; /* animação de zoom ao hover */
+    }
+
+    /* Zoom leve ao passar o mouse na imagem */
+    .galeria-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* 
+      Legenda que aparece sobre a imagem ao passar o mouse.
+      Começa invisível (opacity: 0) e aparece com transição.
+    */
+    .galeria-legenda {
+      position: absolute;  /* fica em cima da imagem */
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.65); /* preto semitransparente */
+      color: white;
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .galeria-item:hover .galeria-legenda {
+      opacity: 1; /* mostra ao passar o mouse */
+    }
+
+    /* ---- CONTATO ---- */
+
+    /* Divide contato em duas colunas */
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    /* Cada canal de contato (WhatsApp, Email) */
+    .contato-canal {
+      border-top: 2px solid var(--preto);
+      padding-top: 24px;
+    }
+
+    /* Rótulo pequeno acima do link */
+    .contato-label {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--cinza);
+      margin-bottom: 8px;
+    }
+
+    /* Link de contato principal */
+    .contato-link {
+      display: block;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--preto);
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+
+    .contato-link:hover {
+      color: var(--destaque);
+    }
+
+    /* Botão de ação do contato (WhatsApp / Email) */
+    .contato-btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 12px 28px;
+      border: 1px solid var(--preto);
+      color: var(--preto);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .contato-btn:hover {
+      background: #4F46E5;
+      border-color: #4F46E5;
+      color: var(--branco);
+    }
+
+    /* ---- RODAPÉ ---- */
+
+    footer {
+      border-top: 1px solid var(--linha);
+      padding: 32px 40px;
+      text-align: center;
+      color: var(--cinza);
+      font-size: 0.85rem;
+    }
+
+    /* ---- RESPONSIVIDADE ---- */
+
+    /* 
+      @media: regras que se aplicam APENAS em telas com largura ≤ 700px.
+      Ajusta layouts para celular.
+    */
+    @media (max-width: 700px) {
+
+      /* No celular, serviços ficam em 1 coluna */
+      .servicos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* No celular, contato fica em 1 coluna */
+      .contato-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      /* Menu esconde os links no celular */
+      .nav-links {
+        display: none;
+      }
+
+      #hero {
+        padding: 60px 20px;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+    }

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!-- 
+  DOCTYPE html: diz ao navegador que este é um documento HTML5 (versão mais atual do HTML).
+  Sempre deve ser a primeira linha do arquivo.
+-->
+
+<html lang="pt-BR">
+<!-- 
+  <html>: elemento raiz que envolve TODO o conteúdo da página.
+  lang="pt-BR": informa ao navegador (e leitores de tela) que o idioma é português do Brasil.
+-->
+
+<head>
+  <!-- 
+    <head>: seção "invisível" da página.
+    Contém configurações, metadados e links para estilos/fontes.
+    O usuário NÃO vê o conteúdo do <head> diretamente na tela.
+  -->
+
+  <!-- Define a codificação de caracteres (permite acentos, ç, etc.) -->
+  <meta charset="UTF-8">
+
+  <!-- Faz o site se adaptar ao tamanho da tela (responsividade) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título que aparece na aba do navegador -->
+  <title>Gráfica | Impressão de Qualidade</title>
+
+  <!-- 
+    Google Fonts: importa fontes externas para o site.
+    "DM Serif Display" = fonte elegante para títulos.
+    "DM Sans" = fonte limpa para textos corridos.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- 
+    <body>: tudo que aparece VISUALMENTE na página fica aqui.
+  -->
+
+  <!-- ============================================================
+       NAVEGAÇÃO
+       O menu fica fixo no topo com links âncora (#secao).
+       Links âncora não carregam nova página — rolam suavemente
+       até o elemento com aquele id na mesma página.
+  ============================================================ -->
+  <nav>
+    <div class="nav-inner">
+      <!-- Logo: âncora para o topo (#hero-wrapper) -->
+      <a href="#hero-wrapper" class="logo">GRÁFICA</a>
+
+      <!-- Lista de links de navegação -->
+      <ul class="nav-links">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#galeria-wrapper">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO — seção de boas-vindas
+       id="hero-wrapper" é o alvo do link âncora do menu.
+  ============================================================ -->
+  <div id="hero-wrapper">
+    <div id="hero">
+      <p class="hero-subtag">Impressão de qualidade</p>
+
+      <!-- Título principal: <h1> = maior e mais importante da página -->
+      <h1>Seu projeto impresso com precisão.</h1>
+
+      <p>
+        Panfletos, cartões, banners e muito mais.
+        Atendimento rápido, material de qualidade e entrega no prazo.
+      </p>
+
+      <!-- 
+        Botão que rola até a seção de contato.
+        href="#contato" referencia o id="contato" mais abaixo.
+      -->
+      <a href="#contato" class="btn">Fale conosco</a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SERVIÇOS
+       id="servicos" é o alvo do link âncora do menu.
+  ============================================================ -->
+  <section id="servicos">
+    <h2 class="section-title">Serviços</h2>
+    <p class="section-subtitle">O que podemos imprimir para você</p>
+
+    <!-- Grid com 3 cards de serviço -->
+    <div class="servicos-grid">
+
+      <!-- Card 1 -->
+      <div class="servico-item">
+        <div class="servico-icon">📄</div>
+        <h3>Panfletos & Folders</h3>
+        <p>Couchê 90g ou 115g, frente ou frente e verso, colorido ou P&B.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="servico-item">
+        <div class="servico-icon">🪪</div>
+        <h3>Cartões de Visita</h3>
+        <p>Acabamentos em laminação fosca, brilho ou verniz localizado.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="servico-item">
+        <div class="servico-icon">🖼️</div>
+        <h3>Banners & Lonas</h3>
+        <p>Impressão digital em alta resolução para uso interno e externo.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="servico-item">
+        <div class="servico-icon">📦</div>
+        <h3>Embalagens</h3>
+        <p>Caixas personalizadas com seu logo e identidade visual.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="servico-item">
+        <div class="servico-icon">📒</div>
+        <h3>Blocos & Formulários</h3>
+        <p>Blocos de recibo, ordem de serviço e formulários numerados.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="servico-item">
+        <div class="servico-icon">🎨</div>
+        <h3>Arte Personalizada</h3>
+        <p>Criação de arte e diagramação para seu material gráfico.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALERIA
+       O wrapper tem fundo diferente e vai de borda a borda.
+       id="galeria-wrapper" é o alvo do link âncora do menu.
+  ============================================================ -->
+  <div id="galeria-wrapper">
+    <section id="galeria">
+      <h2 class="section-title">Galeria</h2>
+      <p class="section-subtitle">Alguns trabalhos realizados</p>
+
+      <!-- 
+        Grid de imagens.
+        Usando imagens de placeholder (picsum.photos) para demonstração.
+        Substitua os src="" pelas URLs das suas fotos reais.
+      -->
+      <div class="galeria-grid">
+
+        <!-- Cada item tem uma imagem e uma legenda oculta -->
+        <div class="galeria-item">
+          <img src="https://picsum.photos/seed/g1/400/400" alt="Cartões de visita impressos">
+          <span class="galeria-legenda">Cartões de visita</span>
+        </div>
+
+        <div class="galeria-item">
+          <img src="https://picsum.photos/seed/g2/400/400" alt="Banner impresso">
+          <span class="galeria-legenda">Banner lona</span>
+        </div>
+
+        <div class="galeria-item">
+          <img src="https://picsum.photos/seed/g3/400/400" alt="Panfletos coloridos">
+          <span class="galeria-legenda">Panfletos</span>
+        </div>
+
+        <div class="galeria-item">
+          <img src="https://picsum.photos/seed/g4/400/400" alt="Embalagem personalizada">
+          <span class="galeria-legenda">Embalagem</span>
+        </div>
+
+        <div class="galeria-item">
+          <img src="https://picsum.photos/seed/g5/400/400" alt="Folder dobrado">
+          <span class="galeria-legenda">Folder</span>
+        </div>
+
+        <div class="galeria-item">
+          <img src="https://picsum.photos/seed/g6/400/400" alt="Bloco de notas impresso">
+          <span class="galeria-legenda">Bloco de notas</span>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================
+       CONTATO
+       id="contato" é o alvo do link âncora do menu e do botão hero.
+  ============================================================ -->
+  <section id="contato">
+    <h2 class="section-title">Contato</h2>
+    <p class="section-subtitle">Entre em contato pelo canal de sua preferência</p>
+
+    <div class="contato-grid">
+
+      <!-- Canal 1: WhatsApp -->
+      <div class="contato-canal">
+        <p class="contato-label">WhatsApp</p>
+
+        <!-- 
+          O número de telefone como texto visível.
+          Não tem link aqui, apenas informação.
+        -->
+        <span class="contato-link">(11) 97769-5805</span>
+
+        <p style="color: var(--cinza); font-size: 0.9rem; margin-bottom: 8px;">
+          Atendimento rápido pelo WhatsApp. Resposta em até 1h.
+        </p>
+
+        <!-- 
+          Link para o WhatsApp Web.
+          Formato da URL: https://wa.me/55 + DDD + número (sem espaços ou traços).
+          55 = código do Brasil.
+        -->
+        <a
+          href="https://wa.me/5511977695805"
+          target="_blank"
+          class="contato-btn"
+        >
+          Abrir WhatsApp
+        </a>
+        <!-- target="_blank" abre o link em uma nova aba -->
+      </div>
+
+      <!-- Canal 2: E-mail -->
+      <div class="contato-canal">
+        <p class="contato-label">E-mail</p>
+
+        <!-- 
+          mailto: faz o sistema operacional abrir o app de e-mail padrão
+          com o endereço já preenchido.
+        -->
+        <a href="mailto:arthurrochaselfie@gmail.com" class="contato-link">
+          arthurrochaselfie@gmail.com
+        </a>
+
+        <p style="color: var(--cinza); font-size: 0.9rem; margin-bottom: 8px;">
+          Envie seu arquivo, briefing ou dúvida por e-mail.
+        </p>
+
+        <a
+          href="mailto:arthurrochaselfie@gmail.com"
+          class="contato-btn"
+        >
+          Enviar e-mail
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RODAPÉ
+       Informações institucionais simples.
+  ============================================================ -->
+  <footer>
+    <p>© 2025 Gráfica — Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>
